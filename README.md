@@ -18,7 +18,7 @@ Into this -
 ["water","water","water","water","water","water", ...,"land"...,"desert"...,"mountain"]
 
 ## Usage
-`npm hexMapGenerator.js <input-file.png> <output-file> <cols> <rows>`
+`getTerrain(imageFile, cols, rows)`
 
 ## Further Development
 - output code for rendering map

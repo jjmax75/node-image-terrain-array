@@ -1,6 +1,6 @@
 'use strict';
 
-function getTerrain(imageFile, outputFile, cols, rows) {
+function getTerrain(imageFile, cols, rows) {
   console.log('In the terrain module');
 
   const Promise = require('bluebird');
