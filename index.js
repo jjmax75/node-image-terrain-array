@@ -1,42 +1,53 @@
 'use strict';
 
-const path = process.cwd();
+function getTerrain(imageFile, outputFile, cols, rows) {
+  console.log('In the terrain module');
 
-const imageFile = path + '/' + process.argv[2];
-const outputFile = path + '/output/' + process.argv[3];
-const numCols = Number(process.argv[4]);
-const numRows = Number(process.argv[5]);
+  const Promise = require('bluebird');
+  let o = new Object();
 
-const createGridPoints = require(path + '/src/createGridPoints');
-const imageWorker = require(path + '/src/imageWorker');
-const generatorHelper = require(path + '/src/helperFunctions');
+  const createGridPoints = require('./src/createGridPoints');
+  const imageWorker = require('./src/imageWorker');
+  const helperFunctions = require('./src/helperFunctions');
 
-const image = imageWorker(imageFile);
-const gridPoints = createGridPoints(image.width, image.height, numCols, numRows);
-const helper = generatorHelper();
+  const image = imageWorker(imageFile);
+  const gridPoints = createGridPoints(image.width, image.height, cols, rows);
+  const helper = helperFunctions();
 
-// get details for the hexes
-const hexRadius = gridPoints.calculateHexRadius();
-const hexCentres = gridPoints.calculateEachHexCentre(hexRadius);
+  // get details for the hexes
+  const hexRadius = gridPoints.calculateHexRadius();
+  const hexCentres = gridPoints.calculateEachHexCentre(hexRadius);
 
-// get rgba samples values for each hexagon
-helper.getPixels(image)
-.then(function(pixels) {
-  return helper.getSamplePixelsColours(pixels, hexRadius, hexCentres, image);
-})
-.then(function(samples) {
-  return helper.getAverageColours(samples, image);
-})
-.then(function(averageColours) {
-  return helper.convertToHSV(averageColours, image);
-})
-.then(function(hsvValues) {
-  return helper.mapColourToTileType(hsvValues);
-})
-.then(function(terrain) {
-  helper.writeToFile(terrain, outputFile);
-  // TODO refactor to return array
-})
-.catch(function(error) {
-  console.log(error);
-});
+  o.getTerrainArray = function() {
+    return new Promise(function(resolve, reject) {
+      helper.getPixels(image)
+      .then(function(pixels) {
+        return helper.getSamplePixelsColours(pixels, hexRadius, hexCentres, image);
+      })
+      .then(function(samples) {
+        return helper.getAverageColours(samples, image);
+      })
+      .then(function(averageColours) {
+        return helper.convertToHSV(averageColours, image);
+      })
+      .then(function(hsvValues) {
+        return helper.mapColourToTileType(hsvValues);
+      })
+      .then(function(terrain) {
+        // writes to a file
+        //helper.writeToFile(terrain, outputFile);
+        // returns terrain array
+        resolve(terrain);
+      })
+      .catch(function(error) {
+        reject(error);
+      });
+    });
+
+  }
+  // get rgba samples values for each hexagon
+
+  return o;
+}
+
+module.exports = getTerrain;
