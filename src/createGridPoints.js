@@ -29,7 +29,7 @@ function createGridPoints(imgWidth, imgHeight, numCols, numRows) {
           a = Math.sqrt(3) * (j - 0.5) * hexRadius;
         }
         // don't add if centre of hex is outside image
-        if (a >= 0 && b >= 0) {
+        if (a > 0 && b > 0) {
           points.push([a, b]);
         }
       }//for j

@@ -1,6 +1,6 @@
 {
   "name": "node-image-terrain-array",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generates a terrain array from an input image",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,7 @@
   },
   "keywords": [
     "Node",
-    "D3",
-    "Hex Map"
+    "Image Manipulation"
   ],
   "author": "Sean Behan <behanj@gmail.com> (http://boxitoff.com)",
   "license": "MIT",
