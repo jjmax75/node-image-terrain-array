@@ -20,7 +20,7 @@ function getTerrain(imageFile, cols, rows) {
 
   o.hexRadius = hexRadius;
   o.points = hexCentres;
-  
+
   o.getTerrainArray = function() {
     return new Promise(function(resolve, reject) {
       helper.getPixels(image)
@@ -34,13 +34,7 @@ function getTerrain(imageFile, cols, rows) {
         return helper.convertToHSV(averageColours, image);
       })
       .then(function(hsvValues) {
-        return helper.mapColourToTileType(hsvValues);
-      })
-      .then(function(terrain) {
-        // writes to a file
-        //helper.writeToFile(terrain, outputFile);
-        // returns terrain array
-        resolve(terrain);
+        resolve(hsvValues);
       })
       .catch(function(error) {
         reject(error);

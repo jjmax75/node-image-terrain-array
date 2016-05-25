@@ -2,7 +2,7 @@
 
 Input - png file, output filename number of columns, number of rows
 
-Output - array of map terrain, array of centre points of hexagons, hexagon radius
+Output - array of average hsv values for each hexagon, array of centre points of hexagons, hexagon radius
 
 ## Overview
 
@@ -15,7 +15,7 @@ Turn this -
 
 Into this -
 
-["water","water","water","water","water","water", ...,"land"...,"desert"...,"mountain"]
+[{ h: 91, s: 55, v: 21 }, {....}, .....], [[ 9.804061174918171, 16.9811320754717 ], [ ....... ], ......], 11.320754716981131
 
 ## Usage
 `getTerrain(imageFile, cols, rows)`
@@ -32,8 +32,7 @@ Into this -
 - [x] get pixel sample (array->rgba values) function
 - [x] get average colour(array->rgb) of each sample
 - [x] get hsv(array) values from rgb averages
-- [x] convert hsv to terrain type (array)
-- [x] output array to file
+- [x] return array of hsv values, array of hex centre points, hex radius 
 - [x] clean up code :)
 
 [world]: https://github.com/jjmax75/node-image-terrain-array/blob/master/test/resources/map.png "World - Asia, Europe, North Africa"
