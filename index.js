@@ -18,6 +18,9 @@ function getTerrain(imageFile, cols, rows) {
   const hexRadius = gridPoints.calculateHexRadius();
   const hexCentres = gridPoints.calculateEachHexCentre(hexRadius);
 
+  o.hexRadius = hexRadius;
+  o.points = hexCentres;
+  
   o.getTerrainArray = function() {
     return new Promise(function(resolve, reject) {
       helper.getPixels(image)

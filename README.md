@@ -2,7 +2,7 @@
 
 Input - png file, output filename number of columns, number of rows
 
-Output - array of map terrain
+Output - array of map terrain, array of centre points of hexagons, hexagon radius
 
 ## Overview
 

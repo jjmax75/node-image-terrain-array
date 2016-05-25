@@ -1,6 +1,6 @@
 {
   "name": "node-image-terrain-array",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generates a terrain array from an input image",
   "main": "index.js",
   "scripts": {
