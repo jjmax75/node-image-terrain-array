@@ -13,7 +13,7 @@ function imageWorker(pngFile) {
 
   // https://medium.com/@mackplevine/node-js-get-pixels-getting-pixels-at-specific-sectors-of-an-image-using-ndarray-e6d4cb285d36#.6av5oit45
   image.pixelGetter = function(cb) {
-    getPixels(image.file, function(err, pixels) {
+    getPixels(image.file, 'image/png', function(err, pixels) {
       if (err) return cb(err, null);
       console.log('Crunching Pixels Baby! Yeah!');
       return cb(null, pixels);

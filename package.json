@@ -1,7 +1,7 @@
 {
   "name": "node-image-terrain-array",
-  "version": "1.0.4",
-  "description": "Generates a HSV array from an input image",
+  "version": "1.0.5",
+  "description": "Generates a HSV array from a Buffer of a PNG image",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

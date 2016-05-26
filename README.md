@@ -1,6 +1,6 @@
 # Node Image to Terrain Array by Box It Off
 
-Input - png file, output filename number of columns, number of rows
+Input - png buffer, number of columns, number of rows
 
 Output - array of average hsv values for each hexagon, array of centre points of hexagons, hexagon radius
 
@@ -32,7 +32,7 @@ Into this -
 - [x] get pixel sample (array->rgba values) function
 - [x] get average colour(array->rgb) of each sample
 - [x] get hsv(array) values from rgb averages
-- [x] return array of hsv values, array of hex centre points, hex radius 
+- [x] return array of hsv values, array of hex centre points, hex radius
 - [x] clean up code :)
 
 [world]: https://github.com/jjmax75/node-image-terrain-array/blob/master/test/resources/map.png "World - Asia, Europe, North Africa"
