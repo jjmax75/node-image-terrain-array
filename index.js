@@ -1,6 +1,6 @@
 'use strict';
 
-function getTerrain(imageFile, cols, rows) {
+function getTerrain(imageFile, cols) {
   console.log('In the terrain module');
 
   const Promise = require('bluebird');
@@ -11,6 +11,11 @@ function getTerrain(imageFile, cols, rows) {
   const helperFunctions = require('./src/helperFunctions');
 
   const image = imageWorker(imageFile);
+  const rows = getRows();
+  function getRows() {
+    const imageProportions = image.width / image.height;
+    return cols / imageProportions;
+  }
   const gridPoints = createGridPoints(image.width, image.height, cols, rows);
   const helper = helperFunctions();
 
@@ -20,6 +25,7 @@ function getTerrain(imageFile, cols, rows) {
 
   o.hexRadius = hexRadius;
   o.points = hexCentres;
+  o.rows = rows;
 
   o.getTerrainArray = function() {
     return new Promise(function(resolve, reject) {

@@ -1,8 +1,8 @@
 # Node Image to Terrain Array by Box It Off
 
-Input - png buffer, number of columns, number of rows
+Input - png buffer, number of columns
 
-Output - array of average hsv values for each hexagon, array of centre points of hexagons, hexagon radius
+Output - array of average hsv values for each hexagon, array of centre points of hexagons, hexagon radius, number of rows
 
 ## Overview
 
