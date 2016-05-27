@@ -18,7 +18,7 @@ Into this -
 [{ h: 91, s: 55, v: 21 }, {....}, .....], [[ 9.804061174918171, 16.9811320754717 ], [ ....... ], ......], 11.320754716981131
 
 ## Usage
-`getTerrain(imageFile, cols, rows)`
+`getTerrain(imageFile, cols)`
 
 ## Further Development
 - output code for rendering map
